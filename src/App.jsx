@@ -39,8 +39,44 @@ const languages = [
   },
 ];
 
-export default function App() {
-  const [currentLanguage, setCurrentLanguage] = useState(languages(0));
+//note LOGICA BOTTONI
+function LanguageButton({ language, isActive, onClick }) {
+  let classeBottoni = "btn";
+  if (isActive) {
+    classeBottoni = "btn active";
+  }
+  return (
+    <button className={classeBottoni} onClick={onClick}>
+      {language.title}
+    </button>
+  );
+}
 
-  return <h1>Vite + React</h1>;
+export default function App() {
+  //note stato --> primo oggetto dell'array
+  const [currentLanguage, setCurrentLanguage] = useState(languages[0]);
+  console.log("il linguaggio selezionato è:", currentLanguage.title);
+
+  return (
+    <div className="container">
+      <h1>Learn Web Development</h1>
+
+      {/* bottoni */}
+      <div className="button-container">
+        {languages.map((language) => (
+          <LanguageButton
+            key={language.id}
+            language={language}
+            isActive={currentLanguage.id === language.id}
+            onSelect={() => setCurrentLanguage(language)}
+          />
+        ))}
+      </div>
+      {/* card */}
+      <div className="card">
+        <h2>{currentLanguage.title}</h2>
+        <p>{currentLanguage.description} </p>
+      </div>
+    </div>
+  );
 }
