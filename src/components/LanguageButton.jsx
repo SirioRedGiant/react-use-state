@@ -1,7 +1,7 @@
 //note LOGICA BOTTONI
 export default function LanguageButton({
   selectedLanguage,
-  isActive,
+  currentLanguage,
   onClick,
 }) {
   let classeBottoni = "btn";
