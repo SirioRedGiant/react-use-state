@@ -109,3 +109,21 @@ button:focus-visible {
 .read-the-docs {
   color: #888;
 }
+
+/* Stile base bottoni */
+.btn {
+  padding: 10px 20px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Stile quando il bottone è selezionato */
+.btn.active {
+  background-color: #ffca28;
+  border-color: #ffa000;
+  color: black;
+  font-weight: bold;
+}
