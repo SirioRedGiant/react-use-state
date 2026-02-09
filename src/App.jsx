@@ -4,7 +4,7 @@ import LanguageButton from "./components/LanguageButton";
 
 export default function App() {
   //note stato --> primo oggetto dell'array
-  const [currentLanguage, setCurrentLanguage] = useState(languages[0]);
+  const [currentLanguage, setCurrentLanguage] = useState(null);
 
   return (
     <div className="container">
@@ -16,15 +16,22 @@ export default function App() {
           <LanguageButton
             key={language.id}
             selectedLanguage={language}
-            isActive={currentLanguage.id === language.id}
+            isActive={currentLanguage?.id === language.id}
             onClick={() => setCurrentLanguage(language)}
           />
         ))}
       </div>
       {/* card */}
       <div className="card">
-        <h2>{currentLanguage.title}</h2>
-        <p>{currentLanguage.description} </p>
+        {/* se non c'è il linguaggio */}
+        {!currentLanguage && <p>nessun linguaggio selezionato</p>}
+        {/* se c'è */}
+        {currentLanguage && (
+          <>
+            <h2>{currentLanguage.title}</h2>
+            <p>{currentLanguage.description} </p>
+          </>
+        )}
       </div>
     </div>
   );
