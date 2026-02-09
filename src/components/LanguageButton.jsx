@@ -1,11 +1,11 @@
 //note LOGICA BOTTONI
 export default function LanguageButton({
   selectedLanguage,
-  currentLanguage,
+  isSelected,
   onClick,
 }) {
   let classeBottoni = "btn";
-  if (isActive) {
+  if (isSelected) {
     classeBottoni = "btn active";
   }
   return (

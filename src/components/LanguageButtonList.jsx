@@ -3,7 +3,7 @@ import LanguageButton from "./LanguageButton";
 export default function LanguageButtonList({
   languages,
   currentLanguage,
-  onClick,
+  onSelect,
 }) {
   return (
     <div className="button-container">
@@ -11,8 +11,8 @@ export default function LanguageButtonList({
         <LanguageButton
           key={language.id}
           selectedLanguage={language}
-          currentLanguage={currentLanguage.id === language.id}
-          onClick
+          isSelected={currentLanguage?.id === language.id}
+          onClick={() => onselect(language)}
         />
       ))}
     </div>
